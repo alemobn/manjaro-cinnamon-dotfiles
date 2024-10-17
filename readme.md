@@ -1,3 +1,6 @@
+![Demo 01](docs/demo01.png)
+![Demo 01](docs/demo02.png)
+
 **Run Base Script**
 
 `git clone https://github.com/alemobn/manjaro-desktop.git`
