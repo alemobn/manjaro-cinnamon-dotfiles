@@ -1,99 +1,66 @@
 #!/bin/bash
 
-# define colors
-green='\033[0;32m'
-yellow='\033[0;33m'
-blue='\033[0;34m'
-red='\033[0;31m'
-nc='\033[0m' # no color
+# install git and base-devel
+echo -e "\e[32minstalling git and base-devel...\e[0m"
+sudo pacman -S --noconfirm git base-devel
 
-# update the system
-echo -e "${blue}updating the system...${nc}"
+# install yay if it's not already installed
+if ! command -v yay &> /dev/null; then
+    echo -e "\e[32minstalling yay...\e[0m"
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
+    cd ..
+    rm -rf yay
+fi
+
+# update the system and repositories
+echo -e "\e[32mupdating the system...\e[0m"
 sudo pacman -Syu --noconfirm
 
-# install git first
-echo -e "${green}installing git...${nc}"
-sudo pacman -S --noconfirm git
-
-# enable aur support in yay
-echo -e "${yellow}enabling aur support in yay...${nc}"
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-cd ..
-rm -rf yay
-
-# install basic packages
-echo -e "${green}installing basic packages...${nc}"
+# installations via pacman
+echo -e "\e[32minstalling essential tools and editors...\e[0m"
 sudo pacman -S --noconfirm \
     vim \
-    htop \
-    wget \
+    nano \
     curl \
-    neofetch \
-    gcc \
-    base-devel \
+    wget \
+    flatpak \
+    pyenv \
     python \
     python-pip \
-    firefox \
-    gnome-terminal \
-    vlc \
-    unzip
+    nodejs \
+    npm \
+    gimp \
+    neofetch \
+    discord \
+    lm_sensors \
+    gnome-font-viewer \
 
-# install google chrome (via pamac)
-echo -e "${yellow}installing google chrome...${nc}"
-pamac build google-chrome
+# installations via yay
+echo -e "\e[32minstalling applications from AUR...\e[0m"
+yay -S --noconfirm \
+    visual-studio-code-bin \
+    pycharm-community-edition \
+    whatsdesk \
+    google-chrome \
+    min
 
-# install min browser (via pamac)
-echo -e "${yellow}installing min browser...${nc}"
-pamac build min
+# install grub-customizer via wget
+echo -e "\e[32minstalling grub-customizer...\e[0m"
+wget https://aur.archlinux.org/cgit/aur.git/snapshot/grub-customizer-git.tar.gz
+tar -xvf grub-customizer-git.tar.gz
+cd grub-customizer-git
+makepkg -si --noconfirm
+cd ..
+rm -rf grub-customizer-git grub-customizer-git.tar.gz
 
-# install discord
-echo -e "${green}installing discord...${nc}"
-sudo pacman -S --noconfirm discord
-
-# install grub customizer (via pamac)
-echo -e "${yellow}installing grub customizer...${nc}"
-pamac build grub-customizer
-
-# install node.js, npm and yarn (via pamac)
-echo -e "${green}installing node.js and npm...${nc}"
-sudo pacman -S --noconfirm nodejs npm
-echo -e "${yellow}installing yarn...${nc}"
-pamac build yarn
-
-# install whatsdesk (via pamac)
-echo -e "${yellow}installing whatsdesk...${nc}"
-pamac build whatsdesk
-
-# install pycharm community edition
-echo -e "${green}installing pycharm community edition...${nc}"
-sudo pacman -S --noconfirm pycharm-community-edition
-
-# install visual studio code (via pamac)
-echo -e "${yellow}installing visual studio code...${nc}"
-pamac build visual-studio-code-bin
-
-# install pyenv
-echo -e "${green}installing pyenv...${nc}"
-curl https://pyenv.run | bash
+# install pfetch
+echo -e "\e[32minstalling pfetch...\e[0m"
+git clone https://github.com/dylanaraps/pfetch.git
+chmod +x pfetch/pfetch
+sudo mv pfetch/pfetch /usr/local/bin/
+rm -rf pfetch
 
 # finish
-echo -e "${blue}installation complete! you may need to reboot the system.${nc}"
-
-# cleanup
-echo -e "${red}cleaning up unnecessary packages...${nc}"
-sudo pacman -Rns $(pacman -Qdtq) --noconfirm
-echo -e "${red}removing cached packages...${nc}"
-sudo pacman -Sc --noconfirm
-
-# pamac cleanup
-echo -e "${red}cleaning up pamac cache...${nc}"
-pamac clean
-
-# yay cleanup
-echo -e "${red}cleaning up yay...${nc}"
-yay -Rns $(yay -Qdtq) --noconfirm
-yay -Sc --noconfirm
-
-echo -e "${green}cleanup complete!${nc}"
+echo -e "\e[32minstallation complete! please restart the system if necessary.\e[0m"
