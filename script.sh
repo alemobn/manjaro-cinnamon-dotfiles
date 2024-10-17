@@ -25,8 +25,11 @@ sudo pacman -S --noconfirm \
     nano \
     curl \
     wget \
+    gcc \
+    make \
+    dkms \
+    perl \
     flatpak \
-    pyenv \
     python \
     python-pip \
     nodejs \
@@ -45,6 +48,14 @@ yay -S --noconfirm \
     whatsdesk \
     google-chrome \
     min
+
+# install pyenv
+echo -e "\e[32minstalling pyenv...\e[0m"
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+' >> ~/.bashrc
 
 # install grub-customizer via wget
 echo -e "\e[32minstalling grub-customizer...\e[0m"
