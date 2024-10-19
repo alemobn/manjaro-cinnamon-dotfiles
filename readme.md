@@ -19,7 +19,7 @@
 
 `cd .. && rm -rf cblack`
 
-**Papirus Icon Install**
+**Vimix Icon Install**
 
 `git clone https://github.com/vinceliuice/Vimix-icon-theme.git`
 
