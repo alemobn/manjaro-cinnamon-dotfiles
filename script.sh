@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# update the system and repositories
+echo -e "\e[32mupdating the system...\e[0m"
+sudo pacman -Syu --noconfirm
+
 # install git and base-devel
 echo -e "\e[32minstalling git and base-devel...\e[0m"
 sudo pacman -S --noconfirm git base-devel
@@ -13,10 +17,6 @@ if ! command -v yay &> /dev/null; then
     cd ..
     rm -rf yay
 fi
-
-# update the system and repositories
-echo -e "\e[32mupdating the system...\e[0m"
-sudo pacman -Syu --noconfirm
 
 # installations via pacman
 echo -e "\e[32minstalling essential tools and editors...\e[0m"
