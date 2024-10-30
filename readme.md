@@ -35,6 +35,12 @@ sudo python3 dedsec-theme.py --install`
 
 `cd .. && rm -rf dedsec-grub-theme`
 
+**BlackBox Prompt Install**
+
+`flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`
+
+`flatpak install flathub com.raggesilver.BlackBox`
+
 **Other Features**
 
 - Transparent panel extension
