@@ -18,13 +18,13 @@
 
 `cd .. && rm -rf cblack`
 
-**Vimix Icon Install**
+**Kora Icon Install**
 
-`git clone https://github.com/vinceliuice/Vimix-icon-theme.git`
+`git clone https://github.com/bikass/kora.git`
 
-`./Vimix-icon-theme/install.sh`
+`mkdir ~/.icons && mv kora/kora ~/.icons`
 
-`rm -rf Vimix-icon-theme`
+`rm -rf kora`
 
 **Grub Theme Install**
 
