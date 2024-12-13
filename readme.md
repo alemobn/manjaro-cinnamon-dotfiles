@@ -2,9 +2,9 @@
 
 **Run Base Script**
 
-`git clone https://github.com/alemobn/manjaro-desktop.git`
+`git clone https://github.com/alemobn/manjaro-cinnamon-dotfiles.git`
 
-`chmod +x ./manjaro-desktop/script.sh && ./manjaro-desktop/script.sh`
+`chmod +x ./manjaro-cinnamon-dotfiles/script.sh && ./manjaro-cinnamon-dotfiles/script.sh`
 
 **Breeze Cursor Install**
 
