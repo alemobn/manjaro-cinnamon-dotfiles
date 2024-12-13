@@ -41,6 +41,7 @@ sudo python3 dedsec-theme.py --install`
 
 **Other Features**
 
+- Plank active ( [Theme here](https://www.gnome-look.org/p/1911700) )
 - Transparent panel extension
 - Jetbrains mono terminal font
 - Minimal cinnamon animations
