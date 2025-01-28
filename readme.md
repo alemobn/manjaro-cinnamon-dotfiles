@@ -33,6 +33,14 @@ sudo python3 dedsec-theme.py --install`
 
 `cd .. && rm -rf dedsec-grub-theme`
 
+*--alternative grub theme*
+
+`git clone https://github.com/sudsarkar13/Lenovo-dark-grub-4k-ubuntu`
+
+`cd Lenovo-dark-grub-4k-ubuntu && ./install.sh`
+
+`cd .. && rm -rf Lenovo-dark-grub-4k-ubuntu`
+
 **BlackBox Prompt Install**
 
 `flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`
