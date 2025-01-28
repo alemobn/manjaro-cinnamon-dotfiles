@@ -1,4 +1,5 @@
-![Demo 01](docs/demo.png)
+![Demo 01](docs/demo01.png)
+![Demo 02](docs/demo02.png)
 
 **Run Base Script**
 
