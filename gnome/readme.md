@@ -1,3 +1,5 @@
+![Demo](screenshots/demo.png)
+
 **Run Base Script**
 
 `git clone https://github.com/alemobn/manjaro-dotfiles.git`
@@ -22,3 +24,9 @@ sudo python3 dedsec-theme.py --install`
 `cd Lenovo-dark-grub-4k-ubuntu && ./install.sh`
 
 `cd .. && rm -rf Lenovo-dark-grub-4k-ubuntu`
+
+**Other Features**
+
+- Fira Code terminal font
+- Minimal gnome animations
+- Bash or Fish shell
